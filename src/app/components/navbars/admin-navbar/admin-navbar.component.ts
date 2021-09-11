@@ -9,7 +9,7 @@ import { AppService } from '../../../services/app.service';
 export class AdminNavbarComponent implements OnInit {
 
   isSidebarOpen: boolean = false;
-  
+
   isSearchBoxOpen: boolean = false;
   isOpenNotifi: boolean = false;
   isOpenService: boolean = false;
@@ -21,9 +21,7 @@ export class AdminNavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.appService.isSidebarToggeled$.subscribe(toggle => {
-      this.isSidebarOpen = toggle;
-    });
+    this.appService.isSidebarToggeled$.subscribe(toggle =>  this.isSidebarOpen = toggle);
   }
 
   toggleSidbarMenu() {

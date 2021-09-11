@@ -15,10 +15,7 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.appService.isSidebarToggeled$.subscribe(toggle => {
-      console.log('desde sidebar',toggle)
-      this.isSidebarOpen = toggle;
-    });
+    this.appService.isSidebarToggeled$.subscribe(toggle => this.isSidebarOpen = toggle);
   }
 
   toggleSidbarMenu() {

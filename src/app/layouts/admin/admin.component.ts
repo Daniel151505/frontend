@@ -6,19 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
-  isSidebarOpen: boolean = false;
-
-  // @Output('toggleSidbar') toggleSidbar = new EventEmitter();
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
-  toggleSidbarMenu(event: any) {
-    console.log(event)
-    this.isSidebarOpen = event;
-  }
-
 }
