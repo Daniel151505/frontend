@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppService } from '../../../services/app.service';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -8,18 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class AdminNavbarComponent implements OnInit {
 
   isSidebarOpen: boolean = false;
+  
   isSearchBoxOpen: boolean = false;
   isOpenNotifi: boolean = false;
   isOpenService: boolean = false;
   isOpenOption: boolean = false;
 
-  constructor() { }
+
+  constructor(
+    private appService: AppService
+  ) { }
 
   ngOnInit(): void {
+    this.appService.isSidebarToggeled$.subscribe(toggle => {
+      this.isSidebarOpen = toggle;
+    });
   }
 
   toggleSidbarMenu() {
-    this.isSidebarOpen = !this.isSidebarOpen;
+    this.appService.isSidebarToggeled$.emit(this.isSidebarOpen = !this.isSidebarOpen);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -7,19 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  @Input('isSidebarOpen') isSidebarOpen: boolean = false;
-  @Input('isSearchBoxOpen') isSearchBoxOpen: boolean = false;
-  @Input('isOpenNotifi') isOpenNotifi: boolean = false;
-  @Input('isOpenService') isOpenService: boolean = false;
-  @Input('isOpenOption') isOpenOption: boolean = false;
+  isSidebarOpen: boolean = false;
+
+  // @Output('toggleSidbar') toggleSidbar = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleSidbarMenu() {
-    this.isSidebarOpen = !this.isSidebarOpen;
+  toggleSidbarMenu(event: any) {
+    console.log(event)
+    this.isSidebarOpen = event;
   }
 
 }

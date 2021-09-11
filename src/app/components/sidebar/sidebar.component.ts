@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   isSidebarOpen: boolean = false;
-  constructor() { }
+
+  constructor(
+    public appService: AppService
+  ) { }
 
   ngOnInit(): void {
+    this.appService.isSidebarToggeled$.subscribe(toggle => {
+      console.log('desde sidebar',toggle)
+      this.isSidebarOpen = toggle;
+    });
   }
 
   toggleSidbarMenu() {
-    
+    this.appService.isSidebarToggeled$.emit(this.isSidebarOpen = !this.isSidebarOpen);
   }
 
 }
