@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,7 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
+
+
   ngOnInit(): void {
+    this.getInfo();
+  }
+
+  getInfo() {
+    this.authService.user().subscribe(resp => {
+      console.log('gaaaaaaaaaaaaaaa',resp);
+    })
   }
 }

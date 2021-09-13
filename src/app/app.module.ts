@@ -11,18 +11,27 @@ import { DashboardComponent } from './views/admin/dashboard/dashboard.component'
 import { LoginComponent } from './views/auth/login/login.component';
 import { ComponentsModule } from './components/components.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './views/admin/users/users.component';
+import { CoursesComponent } from './views/admin/courses/courses.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     AuthComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

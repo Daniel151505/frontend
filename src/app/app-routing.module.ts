@@ -4,6 +4,7 @@ import { AdminComponent } from './layouts/admin/admin.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { AuthComponent } from './layouts/auth/auth.component';
 import { LoginComponent } from './views/auth/login/login.component';
+import { UsersComponent } from './views/admin/users/users.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },
