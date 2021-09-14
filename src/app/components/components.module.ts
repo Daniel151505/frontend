@@ -5,24 +5,68 @@ import { IndexNavbarComponent } from './navbars/index-navbar/index-navbar.compon
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterAdminComponent } from './footers/footer-admin/footer-admin.component';
 import { FooterComponent } from './footers/footer/footer.component';
+import { UserNavbarComponent } from './navbars/user-navbar/user-navbar.component';
+import { UserBannerComponent } from './banner/user-banner/user-banner.component';
+import { UserBannerContentComponent } from './banner-course-content/user-banner-content.component';
+import { UserConceptsComponent } from './concepts/user-concepts.component';
+import { UserComponent } from '../layouts/user/user.component';
+import { UserContentComponent } from './content/user.content.component';
+import { UserNotesComponent } from './notes/user-notes.component';
+import { UserSlidebarComponent } from './sidebar/user-sidebar/user-slidebar.component';
+import { NgSimpleProgressBarModule } from 'ng-simple-progress-bar';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CourseSubjectComponent } from './course-subject/course-subject.content.component';
 
 
 
 @NgModule({
   declarations: [
     AdminNavbarComponent,
+    UserNavbarComponent,
     IndexNavbarComponent,
     SidebarComponent,
     FooterAdminComponent,
-    FooterComponent
+    FooterComponent,
+    UserBannerComponent,
+    UserBannerContentComponent,
+    UserConceptsComponent,
+    UserContentComponent,
+    UserNotesComponent,
+    UserSlidebarComponent,
+    CourseSubjectComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgSimpleProgressBarModule,
+    NgCircleProgressModule.forRoot({
+      "radius": 20,
+      "space": -8,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#4882c2",
+      "outerStrokeGradientStopColor": "#53a9ff",
+      "innerStrokeColor": "#e7e8ea",
+      "innerStrokeWidth": 10,
+      "titleFontSize": "24",
+      "unitsColor":"#4882c2",
+      "unitsFontSize":"24",
+      "titleColor": "#4882c2",
+      "animateTitle": true,
+      "animationDuration": 1000,
+      "showBackground": true,
+      "clockwise": false})
   ],
   exports: [
     AdminNavbarComponent,
+    UserNavbarComponent,
     SidebarComponent,
-    FooterAdminComponent
+    FooterAdminComponent,
+    UserBannerComponent,
+    UserBannerContentComponent,
+    UserConceptsComponent,
+    UserContentComponent,
+    UserNotesComponent,
+    UserSlidebarComponent,
+    CourseSubjectComponent
   ]
 })
 export class ComponentsModule { }
